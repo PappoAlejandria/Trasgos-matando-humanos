@@ -41,21 +41,23 @@ public class NJuego {
 			turno = 1;
 	}
 	
-	public void hacerUnMovimiento(int casilla) {
+	public void hacerUnMovimiento(int casilla) { // Método más complejo del programa. Hace que el personaje del jugador (solo hay un personaje por jugador por simplicidad)
+												 // del que sea su turno interactue con una de sus casillas adyacentes. En la interfaz textual aparece el número de la casilla
+												 // con la cual interactuará el personaje.
 		NJugador jgdrTurno = (turno == 0) ? gm : jugador;
 		DPersonaje pjTurno = jgdrTurno.getDatos().getPjs().get(0);
 		DCasilla casillaActual = tablero.getTableroDatos().getCasillaJugador(pjTurno);
 		List<DCasilla> adyacentes = tablero.getAdyacentes(casillaActual.getPosX(),
 				casillaActual.getPosY());
 		if(casilla < adyacentes.size()) {
-			if(adyacentes.get(casilla).getPj() == null) {
+			if(adyacentes.get(casilla).getPj() == null) { // Si no hay un personaje en la casilla con la que se interactua, se hace un movimiento.
 				if(pjTurno.getMovRestantes() > 0) {
 					adyacentes.get(casilla).setPj(pjTurno);
 					casillaActual.setPj(null);
 					pjTurno.setMovRestantes(pjTurno.getMovRestantes()-1);
 				}
 			}
-			else {
+			else { // Si hay un personaje, lo ataca.
 				if(!pjTurno.isHaAtacado()) {
 					int dmg = (new NDado(pjTurno.getDmgPj())).rollD();
 					adyacentes.get(casilla).getPj().setVidaRestante(adyacentes.get(casilla).getPj().getVidaRestante()-dmg);
@@ -67,7 +69,7 @@ public class NJuego {
 		}
 	}
 	
-	public void pasarTurno() {
+	public void pasarTurno() { // Pasa turno y restaura los movimientos y el ataque,
 		this.turno = Math.abs(this.turno - 1);
 		for(DPersonaje pj : gm.getDatos().getPjs()) {
 			pj.setHaAtacado(false);

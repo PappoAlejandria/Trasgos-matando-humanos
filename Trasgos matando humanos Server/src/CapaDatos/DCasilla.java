@@ -1,6 +1,6 @@
 package CapaDatos;
 
-public class DCasilla {
+public class DCasilla { // Casillas del tablero de juego.
 	private final int PosX;
 	private final int PosY;
 	

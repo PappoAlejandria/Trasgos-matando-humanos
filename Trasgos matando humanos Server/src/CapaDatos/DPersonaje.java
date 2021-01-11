@@ -1,6 +1,6 @@
 package CapaDatos;
 
-public class DPersonaje {
+public class DPersonaje { // Los personajes tienen movimientos limitados por turno, y solamente pueden atacar una vez.
 
 	private DDado dmgPj;
 	private int vidaPj;

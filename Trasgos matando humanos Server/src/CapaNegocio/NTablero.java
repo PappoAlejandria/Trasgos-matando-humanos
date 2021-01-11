@@ -19,7 +19,7 @@ public class NTablero {
 		return tableroDatos;
 	}
 
-	public static NTablero generarTablero(int posXMax, int posYMax) {
+	public static NTablero generarTablero(int posXMax, int posYMax) { // Genera un tablero cuadrado. Es un método conveniente.
 		int i = 0;
 		int j = 0;
 		List<DCasilla> casillas = new ArrayList<DCasilla>();
@@ -34,7 +34,7 @@ public class NTablero {
 		return new NTablero(new DTablero(casillas));
 	}
 	
-	public void ponerPersonaje(DPersonaje pj, int x, int y) {
+	public void ponerPersonaje(DPersonaje pj, int x, int y) { // Pone un personaje en una casilla del tablero. Si no existe la casilla no hace nada.
 		for(DCasilla casilla : tableroDatos.getCasillas()) {
 			if(casilla.getPosX() == x && casilla.getPosY() == y) {
 				casilla.setPj(pj);
@@ -42,7 +42,7 @@ public class NTablero {
 		}
 	}
 	
-	public List<DCasilla> getAdyacentes(int x, int y){
+	public List<DCasilla> getAdyacentes(int x, int y){ // Devuelve las casillas adyacentes a una concreta. Necesario, porque los personajes solamente pueden interactuar con estas casillas.
 		List<DCasilla> ady = new ArrayList<DCasilla>();
 		
 		for(DCasilla casilla : tableroDatos.getCasillas()) {
@@ -55,7 +55,7 @@ public class NTablero {
 		return ady;
 	}
 	
-	public void limpiarTablero() {
+	public void limpiarTablero() { // Quita los personajes de todas las casillas del tablero.
 		for(DCasilla casilla : tableroDatos.getCasillas()) {
 			casilla.setPj(null);
 		}

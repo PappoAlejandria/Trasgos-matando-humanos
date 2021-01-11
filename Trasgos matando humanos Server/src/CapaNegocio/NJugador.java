@@ -15,7 +15,7 @@ public class NJugador {
 		return datos;
 	}
 
-	public void rollIniciativa() {
+	public void rollIniciativa() { // La iniciativa determina qué jugador va primero
 		this.datos.setIniciativa((new NDado(new DDado(1, 20))).rollD());
 	}
 }

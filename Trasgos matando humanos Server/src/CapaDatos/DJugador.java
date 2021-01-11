@@ -6,8 +6,8 @@ import java.util.List;
 public class DJugador {
 
 	private String nombre;
-	private List<DPersonaje> pjs;
-	private int iniciativa;
+	private List<DPersonaje> pjs; // Aunque sea una lista, el programa solamente soporta un jugador por simplicidad.
+	private int iniciativa; // La iniciativa determina qué jugador va primero
 
 	public DJugador(String nombre) {
 		this.nombre = nombre;

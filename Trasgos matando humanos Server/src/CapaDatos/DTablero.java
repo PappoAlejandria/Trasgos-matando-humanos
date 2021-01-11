@@ -2,9 +2,9 @@ package CapaDatos;
 
 import java.util.List;
 
-public class DTablero {
+public class DTablero { // Tablero del juego.
 
-	private List<DCasilla> casillas;
+	private List<DCasilla> casillas; // Esta implementación del tablero viene bien para tableros no rectangulares.
 	
 	public DTablero(List<DCasilla> cas) {
 		this.casillas = cas;
@@ -18,7 +18,7 @@ public class DTablero {
 		return this.casillas.add(cas);
 	}
 	
-	public DCasilla getCasillaJugador(DPersonaje jg) {
+	public DCasilla getCasillaJugador(DPersonaje jg) { // Busca un jugador en el tablero y devuelve su casilla.
 		for(DCasilla casilla : casillas) {
 			if(casilla.getPj() != null)
 				if(casilla.getPj().equals(jg))

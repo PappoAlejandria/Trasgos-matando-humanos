@@ -2,7 +2,7 @@ package CapaNegocio;
 
 import CapaDatos.DPersonaje;
 
-public class NPersonaje {
+public class NPersonaje { // Wrapper en capa de negocio
 
 	private DPersonaje datos;
 

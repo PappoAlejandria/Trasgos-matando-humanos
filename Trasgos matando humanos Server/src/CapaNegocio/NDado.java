@@ -12,7 +12,7 @@ public class NDado {
 		this.datos = datos;
 	}
 	
-	public int rollD() {
+	public int rollD() { // Tira los dados y da la suma de sus tiradas.
 		int resultado = 0;
 		int numeroDados = datos.getNumeroDados();
 		int i = 0;
